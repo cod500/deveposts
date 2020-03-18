@@ -1,0 +1,56 @@
+<div class="valign-wrapper row register center">
+    <div class="col card hoverable s10 pull-s1 m6 pull-m3 l6 pull-l3">
+        <br>
+        <span class="card-title flow-text">Register for develoPosts</span>
+        <hr>
+        <form class="col s12" method="POST" action="/register" enctype="multipart/form-data">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input name="firstName" type="text" class="validate">
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input name="lastName" type="text" class="validate">
+                    <label for="lastName">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="password" type="password" class="validate">
+                    <label for="password">Password</label>
+                    <small class="red-text">Password must be 8 characters or more</small>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="confirm" type="password" class="validate">
+                    <label for="confirm">Confirm Password</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="username" id="email" type="email" class="validate">
+                    <label for="username">Email</label>
+                </div>
+            </div>
+            <div class="file-field input-field">
+                <div class="btn grey">
+                    <span>Profile iamge</span>
+                    <input name="image" type="file">
+                </div>
+                <small class="red-text">Png, Jpeg, and Jpg files only</small>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+            <div class="row">
+                <div>
+                    <input class="btn-large red darken-1 register-btn" type="submit" value="Sign up">
+                </div>
+            </div>
+        </form>
+        <hr>
+        <a href="/login/email" class="btn grey white-text sign-up-profile circle"><i class="fa fa-sign-in"></i> Log in</a>
+    </div>
+    
+</div>

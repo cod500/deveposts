@@ -1,0 +1,29 @@
+<h1 class="flow-text">Edit Profile</h1>
+<div class="row">
+  <form action="/profile/edit/{{user.id}}?_method=PUT" method="post" class="col s12">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="row">
+    </div>
+    <div class="row">
+      <input type="text" name="job" value="{{{profile.job}}}">
+      <label for="job">Job</label>
+    </div>
+     <div class="row">
+      <input type="text" name="school" value="{{{profile.school}}}">
+      <label for="school">School</label>
+    </div>
+     <div class="row">
+      <input type="text" name="location" value="{{{profile.location}}}">
+      <label for="location">Location</label>
+    </div>
+     <div class="row">
+      <input type="text" name="home" value="{{{profile.home}}}">
+      <label for="home">Home Town</label>
+    </div>
+     <div class="row">
+      <input type="text" name="goals" value="{{{profile.goals}}}">
+      <label for="goals">Goals</label>
+    </div>
+    <input type="submit" value="Save" class="btn red darken">
+  </form>
+</div>

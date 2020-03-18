@@ -1,0 +1,80 @@
+<div class="row">
+    <div class="col s8 m8">
+        <div class="card post">
+            <div class="card-content flow-text">
+                <div class="card-image">
+                    {{#if user}}
+                    {{{editIcon post.user.id user.id post.id}}}
+                    {{/if}}
+                </div>
+                <div class="chip">
+                    {{#if user.urlImage}}
+                    <img src="{{user.urlImage}}" alt="Comment">
+                    {{else}}
+                    <img src="/profile/image/{{user.id}}" alt="Comment">
+                    {{/if}}
+                    <a href="/profile/user/{{user.id}}">{{user.firstName}} {{user.lastName}}</a>
+                </div>
+                <span class="card-title">{{formatDate post.date 'MMMM Do YYYY'}}</span>
+                {{{post.body}}}
+                {{!-- Like button --}}
+                {{#if user}}
+                <button class="btn waves-effect blue like-button" id="{{post.postId}}" type="submit">
+                    <i class="fa fa-thumbs-up" style="pointer-events:none"></i>{{post.likes.length}}
+                </button>
+                {{/if}}
+                {{!-- Like button --}}
+            </div>
+        </div>
+
+        {{#if post.allowComments}}
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Comments</span>
+                <div class="input-field">
+                    <textarea class="materialize-textarea" name="commentBody" id="comment-{{post.id}}"
+                        required></textarea>
+
+                    <label> Add Comment</label>
+                </div>
+                <input type="submit" value="Submit" class="btn red darken comment-button" id="{{post.id}}">
+            </div>
+        </div>
+        <div class="class-comments">
+            {{#each post.comments}}
+            <div class="card">
+                <div class="card-content grey lighten-5">
+                    <h5 class="flow-text">{{commentBody}}</h5>
+                    <div class="chip">
+                        {{#if commentUser.urlImage}}
+                        <img src="{{commentUser.urlImage}}" alt="Comment">
+                        {{else}}
+                        <img src="/profile/image/{{commentUser.id}}" alt="Comment">
+                        {{/if}}
+                        <a href="/profile/user/{{commentUser.id}}">{{commentUser.firstName}}
+                            {{commentUser.lastName}}</a>
+                    </div>
+                    <br>
+                    <small>Posted: {{formatDate commentDate 'MMMM Do YYYY'}}</small>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
+    </div>
+    <div class="col s4 m4">
+        <div class="card center-align">
+            <div class="card-content">
+                <span class="card-title">{{post.user.firstName}} {{post.user.lastName}}</span>
+                {{#if post.user.urlImage}}
+                <img src="{{post.user.urlImage}}" class="circle responsive-img">
+                {{else}}
+                <img src="/profile/image/{{post.user.id}}" alt="Comment" class="circle responsive-img">
+                {{/if}}
+            </div>
+            <div class="card-action">
+                <a href="/profile/user/{{post.user.id}}"> View {{post.user.firstName}}'s Profile</a>
+            </div>
+        </div>
+    </div>
+</div>

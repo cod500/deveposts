@@ -1,0 +1,67 @@
+<div class="row section">
+    <div class="col s12 m4">
+        <h4>Welcome <br>
+            To DeveloPosts
+        </h4>
+
+    </div>
+    <div class="col s12 m4">
+        <div class="card-panel grey">
+            <p class="white-text flow-text center-align">
+                A network for developers to share their posts.
+            </p>
+            <blockquote class="black-text flow-text">Let's connect and support.
+            </blockquote>
+        </div>
+    </div>
+
+    <div class="col s12 m4 flow-text">
+        <div class="row">
+            <div class="col s12 m12 sign-up">
+                <a class="btn red darken-1" href="/auth/google"><i class="fa fa-google" aria-hidden="true"></i> Join
+                    With Google
+                </a>
+            </div>
+            <div class="col s12 m12 sign-up">
+                <a class="btn blue white-text" href="/auth/twitter"><i class="fa fa-twitter"></i>
+                    Join With Twitter
+                </a>
+            </div>
+            <div class="col s12 m12 sign-up">
+                <a class="btn grey white-text" href="/register"><i class="fa fa-envelope"></i>
+                    Join With Email
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<hr>
+<h5 class="center-align flow-text">Recent Posts <i class="fa fa-angle-right" aria-hidden="true"></i>
+</h5>
+<div class="row section">
+    {{#each posts}}
+    <div class="col s12 m4">
+        <div class="card-panel grey lighten-5 z-depth-1 recent-posts">
+            <div class="row valign-wrapper">
+                <div class="col s4">
+                    {{#if user.urlImage}}
+                    <img src="{{user.urlImage}}" alt="" class="responsive-img">
+                    {{else}}
+                    <img src="/profile/image/{{user.id}}" alt="Comment" class="responsive-img">
+                    {{/if}}
+                </div>
+                <div class="col s10">
+                    <span class="black-text">
+                        "{{{truncate body 100}}}"
+                    </span>
+                </div>
+            </div>
+            {{!-- <div class="card-action center-align">
+                <a class="btn grey connect" href="/login"><i class="fa fa-users"></i> Connect</a>
+            </div> --}}
+        </div>
+    </div>
+    {{/each}}
+</div>

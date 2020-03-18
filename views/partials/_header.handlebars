@@ -1,0 +1,41 @@
+<nav class="default" role="navigation">
+    <div class="nav-wrapper">
+        {{#if user}}
+        <a href="/posts" class="brand-logo center flow-text"><i class="fa fa-code"></i>develoPosts</a>
+        <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large sidenav-trigger"><i
+                class="material-icons">menu</i></a>
+            <ul class="right hide-on-small-only">
+                <li><a href="/profile/user/{{user.id}}">{{user.firstName}}</a></li>
+                <li><a href="/posts/add">Create Post</a></li>
+                <li><a href="/posts">Feed</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
+            {{else}}
+            <a href="/" class="brand-logo center flow-text"><i class="fa fa-code"></i>develoPosts</a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large sidenav-trigger"><i
+                    class="material-icons">menu</i></a>
+            <ul class="right hide-on-small-only">
+                <li><a href="/posts">Public Feed</a></li>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/signup">Sign up</a></li>
+            </ul>
+            {{/if}}
+            <ul class="side-nav" id="mobile-demo">
+                {{#if user}}
+                <li class="divider"></li>
+                <li><a href="/posts"><i class="fa fa-comment"></i>Feed</a></li>
+                <li>
+                    <a href="/posts/my"><i class="fa fa-user"></i>My Posts</a>
+                </li>
+                <li>
+                    <a href="/register/edit"><i class="fa fa-cogs"></i>Settings</a>
+                </li>
+                <li>
+                    <a href="/auth/logout"><i class="fa fa-sign-out"></i>Logout</a>
+                </li>
+                {{else}}
+                <li><a href="/login"><i class="fa fa-sign-in"></i>Login</a></li>
+                <li><a href="/signup"><i class="fa fa-user-plus"></i>Sign up</a></li>
+                {{/if}}
+            </ul>
+    </div>
+</nav>

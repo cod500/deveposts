@@ -1,0 +1,30 @@
+<h1 class="flow-text">Edit Post</h1>
+<div class="row">
+  <form action="/posts/{{post.id}}?_method=PUT" method="POST" class="col s12">
+    <input type="hidden" name="_method" value="PUT">
+    <div class="row">
+        <div class="input-field">
+      <select name="status">
+          {{#select story.status}}
+        <option value="public" selected>Public</option>
+        <option value="private">Private</option>
+        <option value="unpublished">Unpublished</option>
+        {{/select}}
+      </select>
+      <label for="status">{{post.status}}</label>
+      </div>
+    </div>
+    <div class="row">
+      <p>
+          <input name="allowComments" type="checkbox" class="filled-in" id="filled-in-box" {{#if post.allowComments}}checked="checked"{{/if}} />
+        <label for="filled-in-box">Allow Comments</label>
+      </p>
+    </div>
+    <div class="row">
+      <div class="input-field">
+        <textarea name="body">{{{post.body}}}</textarea>
+      </div>
+    </div>
+    <input type="submit" value="Edit" class="btn red darken">
+  </form>
+</div>

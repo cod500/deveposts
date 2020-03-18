@@ -1,0 +1,125 @@
+<div class="row">
+    <div class="col s12 m8">
+        {{#if posts}}
+        {{#each posts}}
+        <div class="card post">
+            <div class="card-content flow-text">
+                <div class="card-image">
+                    {{#if user}}
+                    {{{editIcon user.id ../user.id id}}}
+                    {{/if}}
+                </div>
+                <div class="chip">
+                    {{#if user.urlImage}}
+                    <img src="{{user.urlImage}}" alt="Comment">
+                    {{else}}
+                    <img src="/profile/image/{{user.id}}" alt="Comment">
+                    {{/if}}
+                    <a href="/profile/user/{{user.id}}">{{user.firstName}} {{user.lastName}}</a>
+                </div>
+                <span class="card-title flow-text" id="post-date">{{formatDate date 'MMMM Do YYYY'}}</span>
+                {{{body}}}
+                {{!-- Like button --}}
+                {{#if ../user}}
+                <button class="btn waves-effect blue like-button" id="{{postId}}" type="submit">
+                    <i class="fa fa-thumbs-up" style="pointer-events:none"></i>{{likes.length}}
+                </button>
+                {{/if}}
+                {{!-- Like button --}}
+            </div>
+        </div>
+
+        {{#if allowComments}}
+        <div class="card">
+            <div class="card-content">
+                <span class="card-title">Comments</span>
+                {{#if ../user}}
+                <div class="input-field">
+                    <textarea class="materialize-textarea commentBody" name="commentBody" id="comment-{{id}}"
+                        required></textarea>
+                    <label> Add Comment</label>
+                </div>
+                <input type="submit" value="Post Reply" class="btn red darken comment-button" id="{{id}}">
+                {{else}}
+                <p><a href="/login">Join</a> to leave comments</p>
+                {{/if}}
+            </div>
+        </div>
+
+        <div class="class-comments">
+            {{#each comments}}
+            <div class="card">
+                <div class="card-content grey lighten-5">
+                    <h5 class="flow-text">{{commentBody}}</h5>
+                    <div class="chip">
+                        {{#if commentUser.urlImage}}
+                        <img src="{{commentUser.urlImage}}" alt="Comment">
+                        {{else}}
+                        <img src="/profile/image/{{commentUser.id}}" alt="Comment">
+                        {{/if}}
+                        <a href="/profile/user/{{commentUser.id}}">{{commentUser.firstName}}
+                            {{commentUser.lastName}}</a>
+                    </div>
+                    <br>
+                    <small>Posted: {{formatDate commentDate 'MMMM Do YYYY'}}</small>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        {{/if}}
+        {{/each}}
+        {{else}}
+        <div class="card">
+            <div class="card-image">
+                <img src="/img/dog.jpg">
+                <span class="card-title black-text">No Posts.</span>
+                <a class="btn-floating halfway-fab waves-effect waves-light red" href="/posts/add"><i
+                        class="material-icons">add</i></a>
+            </div>
+            <div class="card-content flow-text">
+                <p>Click on the floating red button to start posting.</p>
+            </div>
+        </div>
+        {{/if}}
+    </div>
+
+    <div class="col s12 m4 sticky">
+        <div class="card center-align">
+            <div class="card-content center-align">
+                <span class="card-title">{{user.firstName}} {{user.lastName}}</span>
+                {{#if user}}
+                {{#if user.urlImage}}
+                <img src="{{user.urlImage}}" class="circle responsive-img">
+                {{else}}
+                <img src="/profile/image/{{user.id}}" class="circle responsive-img">
+                {{/if}}
+                <br><br>
+                <div class="">
+                    <p><a href="/profile/user/{{user.id}}">My Profile</a></p>
+                </div>
+                <div class="">
+                    <p><a href="/posts/my">My Posts</a></p>
+                </div>
+                <div class="">
+                    <p><a href="/posts">Public Posts</a></p>
+                </div>
+                {{else}}
+                <h5 class="flow-text">Welcome, create an account.</h5>
+                <a href="/auth/google" class="waves-effect red waves-light btn sign-up-profile"><i class="fa fa-google"
+                        aria-hidden="true"></i> Join</a>
+                <a href="/auth/twitter" class="btn blue white-text sign-up-profile"><i class="fa fa-twitter"></i>
+                    Join
+                </a>
+                <a href="/register" class="btn grey white-text sign-up-profile"><i class="fa fa-envelope"></i>
+                    Join
+                </a>
+                <div class="card-action">
+                    <p><a class="a-card" href="/">Home</a></p>
+                </div>
+                {{/if}}
+            </div>
+
+        </div>
+    </div>
+</div>
+</div>

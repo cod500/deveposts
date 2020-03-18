@@ -1,0 +1,54 @@
+<div class="valign-wrapper row register center">
+    <div class="col card hoverable s10 pull-s1 m6 pull-m3 l6 pull-l3">
+        <br>
+        <span class="card-title flow-text">Edit user information</span>
+        <hr>
+        <form class="col s12" method="POST" action="/register/edit?_method=PUT"
+            enctype="multipart/form-data">
+            <input type="hidden" name="_method" value="PUT">
+            <div class="row">
+                <div class="input-field col s6">
+                    <input name="firstName" type="text" class="validate" value="{{user.firstName}}">
+                    <label for="firstName">First Name</label>
+                </div>
+                <div class="input-field col s6">
+                    <input name="lastName" type="text" class="validate" value="{{user.lastName}}">
+                    <label for="lastName">Last Name</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <input name="username" id="email" type="email" class="validate" value="{{user.email}}">
+                    <label for="username">Email</label>
+                </div>
+            </div>
+            {{#if user.userID}}
+            <div class="file-field input-field">
+                <div class="btn grey">
+                    <span>Profile image</span>
+                    <input name="image" type="file">
+                </div>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
+                </div>
+            </div>
+            {{/if}}
+            <div class="row">
+                <div>
+                    <input class="btn-large red darken-1 register-btn" type="submit" value="Change Settings">
+                </div>
+            </div>
+        </form>
+        {{!-- Delete account --}}
+        <form method="POST" action="/register/delete?_method=DELETE">
+            <input type="hidden" name="_method" value="DELETE">
+            <small><input class="red-text confirm-delete" value="Delete account" type="submit"></small>
+        </form>
+        {{!-- Delete account --}}
+        <hr>
+        {{#if user.userID}}
+         <a href="/register/edit/password/" class="btn grey white-text sign-up-profile circle"><i class="fa fa-key"></i> Change password</a>
+        {{/if}}
+
+    </div>
+</div>

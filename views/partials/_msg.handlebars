@@ -1,0 +1,19 @@
+{{#if errors}}
+{{#each errors}}
+<div class="container row">
+    <div class="s12 msg z-depth-3 scale-transition error-msg center-align">{{msg}}</div>
+</div>
+{{/each}}
+{{/if}} 
+
+{{#if success_msg}}
+<div class="container row">
+    <div class="s12 msg z-depth-3 scale-transition success-msg center-align">{{success_msg}}</div>
+</div>
+{{/if}} 
+
+{{#if error_msg}}
+<div class="container row">
+    <div class="s12 msg z-depth-3 scale-transition error-msg center-align">{{error_msg}}</div>
+</div>
+{{/if}} 
