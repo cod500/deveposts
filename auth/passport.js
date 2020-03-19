@@ -59,8 +59,8 @@ passport.use(
 passport.use(
   new TwitterStrategy(
     {
-      consumerKey: process.env.TWITTER_CONSUMER_KEY,
-      consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
+      consumerKey: 'ynkyVJTFL3MCLhZ8DFwpeIMz8',
+      consumerSecret: 'iHGZOzaf6mlY4njsPUA0jH8LWWUnhapjNJPsq2YdEJ2vATuTOd',
       callbackURL: "/auth/twitter/callback",
       includeEmail: true
     },
