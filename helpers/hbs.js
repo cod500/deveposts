@@ -83,6 +83,10 @@ const myProfile = (user, profileId, array) => {
   return loggedProfile;
 };
 
+// CKEDITOR.replace('body', {
+//   plugins: 'wysiwygarea,toolbar,basicstyles,link'
+// });
+
 module.exports = {
   truncate,
   stripTags,

@@ -47,20 +47,18 @@
             <div class="row valign-wrapper">
                 <div class="col s4">
                     {{#if user.urlImage}}
-                    <img src="{{user.urlImage}}" alt="" class="responsive-img">
+                    <img src="{{user.urlImage}}" alt="" class="circle responsive-img welcome-image">
                     {{else}}
                     <img src="/profile/image/{{user.id}}" alt="Comment" class="responsive-img">
                     {{/if}}
                 </div>
-                <div class="col s10">
-                    <span class="black-text">
-                        "{{{truncate body 100}}}"
-                    </span>
+                <div class="col s10 block-with-text">
+                    <span class="post-text flow-text truncate">{{{stripTags body}}}</span>
                 </div>
             </div>
-            {{!-- <div class="card-action center-align">
+            <div class="card-action center-align">
                 <a class="btn grey connect" href="/login"><i class="fa fa-users"></i> Connect</a>
-            </div> --}}
+            </div>
         </div>
     </div>
     {{/each}}

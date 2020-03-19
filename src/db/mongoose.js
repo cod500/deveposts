@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // Connect to mongoDB
-mongoose.connect(process.env.MONGODB_URL, {
+mongoose.connect('mongodb://127.0.0.1:27017/developosts-api', {
     useNewUrlParser:true,
     useCreateIndex: true,
     useFindAndModify: false,

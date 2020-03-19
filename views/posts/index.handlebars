@@ -3,9 +3,8 @@
     <div class="col s12 m4">
 
         <div class="card">
-            <div class="card-content center-align">
-                <h5 class="post-title">{{title}}</h5>
-                <p class="post-text flow-text">{{stripTags (truncate body 125)}}</p>
+            <div class="card-content center-align block-with-text">
+                <p class="post-text flow-text truncate">{{{stripTags body}}}</p>
                 <br>
                 <div class="chip">
                     {{#if user.urlImage}}
@@ -18,9 +17,10 @@
             </div>
 
             <form action="/posts/{{id}}?_method=DELETE" method="post" id="delete-form">
-                    <input type="hidden" name="_method">
-                    <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red confirm-delete"><i class="fa fa-trash"></i></button>
-                </form>
+                <input type="hidden" name="_method">
+                <button type="submit" class="btn-floating halfway-fab waves-effect waves-light red confirm-delete"><i
+                        class="fa fa-trash"></i></button>
+            </form>
 
             <div class="card-action center-align">
                 <a class="btn grey" href="/posts/show/{{id}}">View More</a>

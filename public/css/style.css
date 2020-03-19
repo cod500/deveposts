@@ -3,7 +3,6 @@ body {
    min-height: 100vh;
    flex-direction: column;
    font-family: 'Baloo 2', cursive;
-
  }
 
  main {
@@ -90,4 +89,10 @@ div.sticky {
     width: 20%;
     height: 20%;
  }
- 
+
+ .block-with-text {
+   display: block; 
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}

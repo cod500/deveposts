@@ -1,5 +1,7 @@
 $(document).ready(() => {
 
+  $('body')
+
   //Like button ajax request
   $(".like-button").on("click", event => {
     event.preventDefault();

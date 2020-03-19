@@ -224,7 +224,6 @@ router.put(
       } else {
         const newPassword = await bcrypt.hash(req.body.password, 8);
         user.password = newPassword;
-        console.log(newPassword)
         await user.save();
         req.flash("success_msg", "Password successfully changed");
         res.redirect("/posts");
@@ -271,7 +270,6 @@ router.post("/follow/:id", auth, async (req, res) => {
         followerIndex.push(i);
         profile.following.splice(followerIndex[0], 1);
         status = "Follow";
-        console.log("delete");
         break;
       }
     }

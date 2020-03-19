@@ -1,4 +1,42 @@
 <div class="row">
+        <div class="col s12 m4 sticky">
+        <div class="card center-align">
+            <div class="card-content center-align">
+                <span class="card-title">{{user.firstName}} {{user.lastName}}</span>
+                {{#if user}}
+                {{#if user.urlImage}}
+                <img src="{{user.urlImage}}" class="circle responsive-img">
+                {{else}}
+                <img src="/profile/image/{{user.id}}" class="circle responsive-img">
+                {{/if}}
+                <br><br>
+                <div class="">
+                    <p><a href="/profile/user/{{user.id}}">My Profile</a></p>
+                </div>
+                <div class="">
+                    <p><a href="/posts/my">My Posts</a></p>
+                </div>
+                <div class="">
+                    <p><a href="/posts">Public Posts</a></p>
+                </div>
+                {{else}}
+                <h5 class="flow-text">Welcome, create an account.</h5>
+                <a href="/auth/google" class="waves-effect red waves-light btn sign-up-profile"><i class="fa fa-google"
+                        aria-hidden="true"></i> Join</a>
+                <a href="/auth/twitter" class="btn blue white-text sign-up-profile"><i class="fa fa-twitter"></i>
+                    Join
+                </a>
+                <a href="/register" class="btn grey white-text sign-up-profile"><i class="fa fa-envelope"></i>
+                    Join
+                </a>
+                <div class="card-action">
+                    <p><a class="a-card" href="/">Home</a></p>
+                </div>
+                {{/if}}
+            </div>
+
+        </div>
+    </div>
     <div class="col s12 m8">
         {{#if posts}}
         {{#each posts}}
@@ -83,43 +121,5 @@
         {{/if}}
     </div>
 
-    <div class="col s12 m4 sticky">
-        <div class="card center-align">
-            <div class="card-content center-align">
-                <span class="card-title">{{user.firstName}} {{user.lastName}}</span>
-                {{#if user}}
-                {{#if user.urlImage}}
-                <img src="{{user.urlImage}}" class="circle responsive-img">
-                {{else}}
-                <img src="/profile/image/{{user.id}}" class="circle responsive-img">
-                {{/if}}
-                <br><br>
-                <div class="">
-                    <p><a href="/profile/user/{{user.id}}">My Profile</a></p>
-                </div>
-                <div class="">
-                    <p><a href="/posts/my">My Posts</a></p>
-                </div>
-                <div class="">
-                    <p><a href="/posts">Public Posts</a></p>
-                </div>
-                {{else}}
-                <h5 class="flow-text">Welcome, create an account.</h5>
-                <a href="/auth/google" class="waves-effect red waves-light btn sign-up-profile"><i class="fa fa-google"
-                        aria-hidden="true"></i> Join</a>
-                <a href="/auth/twitter" class="btn blue white-text sign-up-profile"><i class="fa fa-twitter"></i>
-                    Join
-                </a>
-                <a href="/register" class="btn grey white-text sign-up-profile"><i class="fa fa-envelope"></i>
-                    Join
-                </a>
-                <div class="card-action">
-                    <p><a class="a-card" href="/">Home</a></p>
-                </div>
-                {{/if}}
-            </div>
-
-        </div>
-    </div>
 </div>
 </div>

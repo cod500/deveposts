@@ -1,7 +1,8 @@
 <nav class="default" role="navigation">
+    <div class="row">
     <div class="nav-wrapper">
         {{#if user}}
-        <a href="/posts" class="brand-logo center flow-text"><i class="fa fa-code"></i>develoPosts</a>
+        <a href="/posts" class="brand-logo center flow-text"><i class="fa fa-code"></i></a>
         <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large sidenav-trigger"><i
                 class="material-icons">menu</i></a>
             <ul class="right hide-on-small-only">
@@ -10,7 +11,7 @@
                 <li><a href="/posts">Feed</a></li>
                 <li><a href="/auth/logout">Logout</a></li>
             {{else}}
-            <a href="/" class="brand-logo center flow-text"><i class="fa fa-code"></i>develoPosts</a>
+            <a href="/" class="brand-logo center flow-text"><i class="fa fa-code"></i>
             <a href="#" data-activates="mobile-demo" class="button-collapse show-on-large sidenav-trigger"><i
                     class="material-icons">menu</i></a>
             <ul class="right hide-on-small-only">
@@ -37,5 +38,6 @@
                 <li><a href="/signup"><i class="fa fa-user-plus"></i>Sign up</a></li>
                 {{/if}}
             </ul>
+    </div>
     </div>
 </nav>

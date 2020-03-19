@@ -1,4 +1,76 @@
 <div class="row">
+        <div class="col s12 m4 sticky">
+        <div class="card center-align">
+            <div class="card-content center-align">
+                <span class="card-title">{{profile.user.firstName}} {{profile.user.lastName}}</span>
+                {{#if profile.user.urlImage}}
+                <img src="{{profile.user.urlImage}}" class="circle responsive-img">
+                {{else}}
+                <img src="/profile/image/{{profile.user.id}}" class="circle responsive-img">
+                {{/if}}
+                <small>{{{editProfile profile.user.id user.id}}}</small>
+            </div>
+
+            {{!-- Follow button --}}
+            {{{myProfile user profile.user.id userProfile.following}}}
+            {{!-- Folow button --}}
+
+            <div class="card-action">
+                <i class="fa fa-briefcase grey-text"></i> 
+                <p><span class="red-text">Works at:</span> {{profile.job}}</p>
+            </div>
+            <div class="card-action">
+                <i class="fa fa-graduation-cap grey-text"></i>
+                <p><span class="red-text">Studied at:</span> {{profile.school}} </p>
+            </div>
+            <div class="card-action">
+                <i class="fa fa-building grey-text"></i>
+                <p><span class="red-text">Lives in:</span> {{profile.location}}</p>
+            </div>
+            <div class="card-action">
+                <i class="fa fa-home grey-text"></i>
+                <p><span class="red-text">From:</span>{{profile.home}}</p>
+            </div>
+            <div class="card-action">
+                <i class="fa fa-bullseye grey-text"></i>
+                <p><span class="red-text">Goals:</span> {{profile.goals}}</p>
+            </div>
+            <div>
+                {{#if profile.following}}
+                <div class="card-action">
+                </div>
+                <div>
+                    <p class="flow-text">Following</p>
+                </div>
+                <div class="row">
+                    {{#each profile.following}}
+                    <ul>
+                        <li>
+                            {{#if followedUser.urlImage}}
+                            <a href="/profile/user/{{followedUser.id}}"><img src="{{followedUser.urlImage}}"
+                                    class="follow-size circle responsive-img" /></a>
+                            {{else}}
+                            <a href="/profile/user/{{followedUser.id}}">
+                                <a href="#"><img src="/profile/image/{{followedUser.id}}"
+                                        class="follow-size circle responsive-img" /></a>
+                                {{/if}}
+                                <div class="about">
+                                    <a href="/profile/user/{{followedUser.id}}">
+                                        <div class="name">{{followedUser.firstName}} {{followedUser.lastName}}</div>
+                                    </a>
+                                </div>
+                        </li>
+                    </ul>
+                    {{/each}}
+                </div>
+                <div>
+                    <a href="/profile/user/following/{{profile.user.id}}">View all</a>
+                    <br><br>
+                </div>
+                {{/if}}
+            </div>
+        </div>
+    </div>
     <div class="col s12 m8">
         {{#if posts}}
         {{#each posts}}
@@ -78,78 +150,5 @@
             </div>
         </div>
         {{/if}}
-    </div>
-
-    <div class="col s12 m4 sticky">
-        <div class="card center-align">
-            <div class="card-content center-align">
-                <span class="card-title">{{profile.user.firstName}} {{profile.user.lastName}}</span>
-                {{#if profile.user.urlImage}}
-                <img src="{{profile.user.urlImage}}" class="circle responsive-img">
-                {{else}}
-                <img src="/profile/image/{{profile.user.id}}" class="circle responsive-img">
-                {{/if}}
-                <small>{{{editProfile profile.user.id user.id}}}</small>
-            </div>
-
-            {{!-- Follow button --}}
-            {{{myProfile user profile.user.id userProfile.following}}}
-            {{!-- Folow button --}}
-
-            <div class="card-action">
-                <i class="fa fa-briefcase grey-text"></i> 
-                <p><span class="red-text">Works at:</span> {{profile.job}}</p>
-            </div>
-            <div class="card-action">
-                <i class="fa fa-graduation-cap grey-text"></i>
-                <p><span class="red-text">Studied at:</span> {{profile.school}} </p>
-            </div>
-            <div class="card-action">
-                <i class="fa fa-building grey-text"></i>
-                <p><span class="red-text">Lives in:</span> {{profile.location}}</p>
-            </div>
-            <div class="card-action">
-                <i class="fa fa-home grey-text"></i>
-                <p><span class="red-text">From:</span>{{profile.home}}</p>
-            </div>
-            <div class="card-action">
-                <i class="fa fa-bullseye grey-text"></i>
-                <p><span class="red-text">Goals:</span> {{profile.goals}}</p>
-            </div>
-            <div>
-                {{#if profile.following}}
-                <div class="card-action">
-                </div>
-                <div>
-                    <p class="flow-text">Following</p>
-                </div>
-                <div class="row">
-                    {{#each profile.following}}
-                    <ul>
-                        <li>
-                            {{#if followedUser.urlImage}}
-                            <a href="/profile/user/{{followedUser.id}}"><img src="{{followedUser.urlImage}}"
-                                    class="follow-size circle responsive-img" /></a>
-                            {{else}}
-                            <a href="/profile/user/{{followedUser.id}}">
-                                <a href="#"><img src="/profile/image/{{followedUser.id}}"
-                                        class="follow-size circle responsive-img" /></a>
-                                {{/if}}
-                                <div class="about">
-                                    <a href="/profile/user/{{followedUser.id}}">
-                                        <div class="name">{{followedUser.firstName}} {{followedUser.lastName}}</div>
-                                    </a>
-                                </div>
-                        </li>
-                    </ul>
-                    {{/each}}
-                </div>
-                <div>
-                    <a href="/profile/user/following/{{profile.user.id}}">View all</a>
-                    <br><br>
-                </div>
-                {{/if}}
-            </div>
-        </div>
     </div>
 </div>
