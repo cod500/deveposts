@@ -6,7 +6,7 @@ const UserSchema = new mongoose.Schema({
   googleID: {
     type: String
   },
-  twitterID: {
+  facebookID: {
     type: String
   },
   userID: {

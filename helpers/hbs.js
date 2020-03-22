@@ -33,9 +33,9 @@ const editIcon = (postUser, loggedUser, postId, floating = true) => {
   if (postUser === loggedUser) {
     if (floating) {
       return `<a href="/posts/edit/${postId}"
-             class="btn-floating halfway-fab red"><i class="fa fa-edit"></i></a>`;
+             class="btn-floating halfway-fab red"><i class="material-icons">edit</i></a>`;
     } else {
-      return `<a class="btn red" href="/posts/edit/${postId}"><i class="fa fa-edit"></i></a>`;
+      return `<a class="btn red" href="/posts/edit/${postId}"><i class="material-icons">edit</i></a>`;
     }
   } else {
     return "";
@@ -46,9 +46,9 @@ const editProfile = (profile, loggedUser, floating = true) => {
   if (profile === loggedUser) {
     if (floating) {
       return `<a href="/profile/edit"
-             class="btn-floating halfway-fab red"><i class="fa fa-edit"></i></a>`;
+             class="btn-floating halfway-fab red"><i class="material-icons">edit</i></a>`;
     } else {
-      return `<a class="btn red" href="/profile/edit"><i class="fa fa-edit"></i></a>`;
+      return `<a class="btn red" href="/profile/edit"><i class="material-icons">edit</i></a>`;
     }
   } else {
     return "";

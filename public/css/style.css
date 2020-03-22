@@ -96,3 +96,9 @@ div.sticky {
    text-overflow: ellipsis;
    white-space: nowrap;
 }
+
+p.line-text:before, p.line-text:after {
+   content:'\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
+   text-decoration: line-through;
+   margin: auto 0.5em;
+ }

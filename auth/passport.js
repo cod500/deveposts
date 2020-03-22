@@ -1,6 +1,7 @@
 const GoogleStrategy = require("passport-google-oauth20").Strategy;
 const TwitterStrategy = require("passport-twitter").Strategy;
 const LoacalStrategy = require("passport-local").Strategy;
+const FacebookStrategy = require("passport-facebook").Strategy;
 const mongoose = require("mongoose");
 const passport = require("passport");
 const bcrypt = require("bcryptjs");
@@ -55,26 +56,27 @@ passport.use(
   )
 );
 
-//Twitter passport setup
+//Facebook passport setup
 passport.use(
-  new TwitterStrategy(
+  new FacebookStrategy(
     {
-      consumerKey: process.env.TWITTER_CONSUMER_KEY,
-      consumerSecret: process.env.TWITTER_CONSUMER_SECRET,
-      callbackURL: "/auth/twitter/callback",
-      includeEmail: true
+      clientID: process.env.FACEBOOK_CLIENT,
+      clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+      callbackURL: "/auth/facebook/callback",
+      profileFields: ["emails", "name", "gender", "picture.type(large)"]
     },
-    (token, tokenSecret, profile, done) => {
+    (accessToken, refreshToken, profile, done) => {
       const newUser = {
-        twitterID: profile.id,
-        firstName: profile.username,
+        facebookID: profile.id,
+        firstName: profile.name.givenName,
+        lastName: profile.name.familyName,
         email: profile.emails[0].value,
         urlImage: profile.photos[0].value
       };
 
-      //Check for exsiting user before creating a new user
+      // Check for exsiting user before creating a new user
       User.findOne({
-        twitterID: profile.id
+        facebookID: profile.id
       }).then(user => {
         if (user) {
           done(null, user);
