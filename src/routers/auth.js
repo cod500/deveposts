@@ -15,10 +15,10 @@ router.get("/auth/google/callback",
 );
 
 //Twitter authorization
-router.get("/auth/facebook", passport.authenticate("facebook", {scope: ["email"]}));
+router.get("/auth/github", passport.authenticate("github", {scope: ["user:email"]}));
 
-router.get("/auth/facebook/callback",
-  passport.authenticate("facebook"),
+router.get("/auth/github/callback",
+  passport.authenticate("github"),
   (req, res) => {
     // Successful authentication, redirect home.
     res.redirect("/");
