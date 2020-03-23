@@ -9,6 +9,11 @@ body {
    flex: 1 0 auto;
  }
 
+ .welcome-img{
+    height: 60px;
+    width:60px
+ }
+
 div.sticky {
     position: -webkit-sticky; /* Safari */
     position: sticky;

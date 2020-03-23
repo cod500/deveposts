@@ -46,12 +46,12 @@
     {{#each posts}}
     <div class="col s12 m4">
         <div class="card-panel grey lighten-5 z-depth-1 recent-posts">
-            <div class="row valign-wrapper">
-                <div class="col s4">
+            <div class="row valign-wrapper welcome-image">
+                <div class="col s4 welcome-image">
                     {{#if user.urlImage}}
-                    <img src="{{user.urlImage}}" alt="" class="circle responsive-img welcome-image">
+                    <img src="{{user.urlImage}}" alt="" class="circle welcome-img">
                     {{else}}
-                    <img src="/profile/image/{{user.id}}" alt="Comment" class="responsive-img">
+                    <img src="/profile/image/{{user.id}}" alt="Comment" class=" circle welcome-img">
                     {{/if}}
                 </div>
                 <div class="col s10 block-with-text">
