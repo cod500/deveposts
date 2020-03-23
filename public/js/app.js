@@ -51,7 +51,7 @@ $(document).ready(() => {
         commentBody: $("#comment-" + target.getAttribute("id")).val()
       }),
       success: function(data) {
-        $(".class-comments").prepend(createComment(data));
+        $("#comment-block-" + target.getAttribute("id")).prepend(createComment(data));
         $("#comment-" + target.getAttribute("id")).val(" ");
       }
     });
@@ -63,7 +63,7 @@ $(document).ready(() => {
     if (data.user.urlImage) {
       image = `<img src="${data.user.urlImage}" alt="Comment">`;
     } else {
-      image = `<img src="/profile/image/${data.commentUser}" alt="Comment">`;
+      image = `<img src="/profile/image/${data.commentUser._id}" alt="Comment">`;
     }
     let html = ` <div class="card grey lighten-5">
       <div class="card-content">
