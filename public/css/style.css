@@ -70,6 +70,11 @@ div.sticky {
    width: 100%;
 }
 
+.profile-img{
+   width: 200px;
+   height: 175px
+}
+
 .msg {
    width:100%;
    border: 1px solid;
@@ -107,3 +112,10 @@ p.line-text:before, p.line-text:after {
    text-decoration: line-through;
    margin: auto 0.5em;
  }
+
+/* Sticky side bar only on medium and large screen */
+@media screen and (min-width: 480px){
+   .div.sticky{
+       position: relative;
+   }
+} 

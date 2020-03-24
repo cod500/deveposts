@@ -107,7 +107,7 @@ router.put("/profile/edit/:id", auth, async (req, res) => {
   }
 });
 
-//Get profile friends list
+//Get profile following list
 router.get("/profile/user/following/:id", auth, async (req, res) => {
   const profile = await Profile.findOne({ user: req.params.id })
     .populate("user")

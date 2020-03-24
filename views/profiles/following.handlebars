@@ -7,17 +7,17 @@
             <div class="img-container">
                 {{#if followedUser.urlImage}}
                 <a href="/profile/user/{{followedUser.id}}"><img src="{{followedUser.urlImage}}"
-                        class="follow-size circle responsive-img" /></a>
+                        class="circle welcome-img" /></a>
                 {{else}}
-                <a href="/profile/user/{{followedUser.id}}">
-                    <a href="#"><img src="/profile/image/{{followedUser.id}}"
-                            class="follow-size circle responsive-img" /></a>
+                    <a href="/profile/user/{{followedUser.id}}"><img src="/profile/image/{{followedUser.id}}"
+                            class="circle welcome-img" /></a>
                     {{/if}}
                     <p>{{followedUser.firstName}} {{followedUser.lastName}}</p>
             </div>
             {{!-- Folow button --}}
-            {{{myProfile ../user followedUser._id ../profile.following}}}
+            {{{myProfile ../user followedUser._id ../userProfile.following}}}
             {{!-- Folow button --}}
+            <br>
         </div>
     </div>
     {{/each}}

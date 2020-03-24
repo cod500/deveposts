@@ -57,16 +57,16 @@ const editProfile = (profile, loggedUser, floating = true) => {
 
 //Get follow status
 const getStatus = (array, followUserId) => {
-  console.log(followUserId, array[0]);
   let status = "Follow";
+  
   for (let i = 0; i < array.length; i++) {
-    if (array[i].followedUser._id == followUserId) {
+    if ("'" + array[i].followedUser  + "'" == "'" + followUserId  + "'" ) {
       status = "Following";
-      break;
     }
   }
   return status;
 };
+
 
 //Show follow button depending on if it's logged in user's profile
 const myProfile = (user, profileId, array) => {
@@ -82,10 +82,6 @@ const myProfile = (user, profileId, array) => {
 
   return loggedProfile;
 };
-
-// CKEDITOR.replace('body', {
-//   plugins: 'wysiwygarea,toolbar,basicstyles,link'
-// });
 
 module.exports = {
   truncate,

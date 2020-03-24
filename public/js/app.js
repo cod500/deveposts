@@ -86,4 +86,10 @@ $(document).ready(() => {
     if (!confirm("Confirm Deletion?")) return false;
   });
 
+  window.onresize = function() {
+    if (window.innerWidth < 1000) {
+      $('div.sticky').removeAttr("sticky")
+    }
+  }
+
 });
