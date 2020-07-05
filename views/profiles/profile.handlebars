@@ -1,5 +1,5 @@
 <div class="row">
-        <div class="col s12 m4">
+    <div class="col s12 m4">
         <div class="card center-align grey lighten-5">
             <div class="card-content center-align ">
                 <span class="card-title">{{profile.user.firstName}} {{profile.user.lastName}}</span>
@@ -16,7 +16,7 @@
             {{!-- Folow button --}}
 
             <div class="card-action">
-                <i class="fa fa-briefcase grey-text"></i> 
+                <i class="fa fa-briefcase grey-text"></i>
                 <p><span class="red-text">Works at:</span> {{profile.job}}</p>
             </div>
             <div class="card-action">
@@ -113,7 +113,7 @@
 
                     <label> Add Comment</label>
                 </div>
-                <input type="submit" value="Post Reply" class="btn red darken comment-button" id="{{id}}">
+                <input type="submit" value="Reply" class="btn red darken comment-button" id="{{id}}">
                 {{else}}
                 <p>Please <a href="/auth/google">log in </a>to leave comments</p>
                 {{/if}}
@@ -122,21 +122,22 @@
 
         <div class="class-comments" id="comment-block-{{id}}">
             {{#each comments}}
-            <div class="card">
-                <div class="card-content grey lighten-5">
-                    <h5 class="flow-text">{{commentBody}}</h5>
+            <div class="">
+                <div class=" grey lighten-5 single-comment">
                     <div class="chip">
                         {{#if commentUser.urlImage}}
                         <img src="{{commentUser.urlImage}}" alt="Comment">
                         {{else}}
-                        <img src="/profile/image/{{commentUser.id}}" class="circle responsive-img">
+                        <img src="/profile/image/{{commentUser.id}}" alt="Comment">
                         {{/if}}
                         <a href="/profile/user/{{commentUser.id}}">{{commentUser.firstName}}
                             {{commentUser.lastName}}</a>
                     </div>
-                    <br>
-                    <small>Posted: {{formatDate commentDate 'MMMM Do YYYY'}}</small>
+                    <span class="flow-text">{{commentBody}}</span>
                 </div>
+                <small>Posted:
+                    {{formatDate commentDate 'MMMM Do YYYY'}}</small>
+                <br><br>
             </div>
             {{/each}}
         </div>

@@ -1,133 +1,177 @@
+/* Global styles */
+
 body {
    display: flex;
    min-height: 100vh;
    flex-direction: column;
-   font-family: 'Baloo 2', cursive;
- }
-
- main {
-   flex: 1 0 auto;
- }
-
- .nav-wrapper li{
-    text-transform: uppercase;
- }
-
- .welcome-img{
-    height: 60px;
-    width:60px;
-    object-fit: cover;
- }
-
-div.sticky {
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
-    top: 0;
-  }
-
-  a{
-   color: #e57373 ;
+   font-family: 'Lato' sans-serif;
+   font-size: 80%;
 }
 
-  #post-date{
-      font-size: 14px;
-  }
+main {
+   flex: 1 0 auto;
+}
 
-  .post .chip{
-    width: 240px;
-    height: 80px;
-    border-radius: 80px;
-    line-height: 80px;
- }
+a {
+   color: #e57373;
+}
 
- .post .chip img{
-    height: 80px;
-    width: 80px;
-    object-fit: cover;
- }
+div.sticky {
+   position: -webkit-sticky;
+   /* Safari */
+   position: sticky;
+   top: 0;
+}
 
- .recent-posts{
+/* End of global styles */
+
+/* Navbar and homepage styles */
+
+.nav-wrapper li {
+   text-transform: uppercase;
+   font-weight: 300;
+}
+
+.welcome-img {
+   height: 60px;
+   width: 60px;
+   object-fit: cover;
+}
+
+.post-text {
+   font-size: 18px;
+}
+
+.recent-posts {
    height: 185px;
    word-wrap: break-word;
-   }
+}
 
-.register{
+/* End of navbar and homepage styles */
+
+/* User card styles */
+
+.chip a {
+   font-weight: 400;
+}
+
+/* End of user car styles */
+
+/* Post styles */
+
+#post-date {
+   font-size: 14px;
+}
+
+.post .chip {
+   width: 240px;
+   height: 80px;
+   border-radius: 80px;
+   line-height: 80px;
+}
+
+.post .chip img {
+   height: 80px;
+   width: 80px;
+   object-fit: cover;
+}
+
+/* End of post styles */
+
+/* Comment styles */
+
+.class-comments {
+   width: 70%;
+   margin-left: 50px;
+}
+
+.single-comment {
+   border-radius: 50px;
+}
+
+.single-comment span {
+   font-size: 15px;
+}
+
+/* End of comment styles */
+
+.register {
    margin-top: 10px;
 }
 
-.login{
+.login {
    margin-top: 30%;
 }
-   
-.sign-up{
+
+.sign-up {
    margin-bottom: 10px;
    padding-top: 10px
 }
 
-.sign-up-profile{
-   margin-bottom: 10px ;
+.sign-up-profile {
+   margin-bottom: 10px;
 }
 
-.col.sign-up > a{
+.col.sign-up>a {
    width: 100%;
 }
 
-.register-btn{
+.register-btn {
    width: 100%;
 }
 
-.profile-img{
+.profile-img {
    width: 200px;
    height: 175px;
    object-fit: cover;
 }
 
 .msg {
-   width:100%;
+   width: 100%;
    border: 1px solid;
-   padding:1x;
+   padding: 1x;
    margin: 1px;
    color: #9e9e9e;
- }
+}
 
 .error-msg {
    border-color: #d32f2f;
    background-color: #ef5350;
    color: white;
- }
+}
 
- .success-msg{
+.success-msg {
    border-color: #009688;
    background-color: #009688;
    color: white;
- }
+}
 
- .follow-size{
-    width: 20%;
-    height: 20%;
- }
+.follow-size {
+   width: 20%;
+   height: 20%;
+}
 
- .block-with-text {
-   display: block; 
+.block-with-text {
+   display: block;
    overflow: hidden;
    text-overflow: ellipsis;
    white-space: nowrap;
 }
 
 .card .card-action a:not(.btn):not(.btn-large):not(.btn-large):not(.btn-floating) {
-   color:#ef5350;
-   
+   color: #ef5350;
 }
 
 p.line-text:before, p.line-text:after {
-   content:'\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
+   content: '\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
    text-decoration: line-through;
    margin: auto 0.5em;
- }
+}
 
 /* Sticky side bar only on medium and large screen */
-@media screen and (min-width: 480px){
-   .div.sticky{
-       position: relative;
+
+@media screen and (min-width: 480px) {
+   .div.sticky {
+      position: relative;
    }
-} 
+}

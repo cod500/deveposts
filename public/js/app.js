@@ -13,7 +13,7 @@ $(document).ready(() => {
       url: "/posts/like/" + target.getAttribute("id"),
       contentType: "application/json",
       data: ""
-    }).done(function(data) {
+    }).done(function (data) {
       console.log(data);
       $("#" + target.getAttribute("id")).html(
         `<i class="fa fa-thumbs-up" style="pointer-events:none"></i>${data}`
@@ -32,7 +32,7 @@ $(document).ready(() => {
       url: "/follow/" + target.getAttribute("id"),
       contentType: "application/json",
       data: ""
-    }).done(function(data) {
+    }).done(function (data) {
       $("#" + target.getAttribute("id")).html(`${data}`);
     });
   });
@@ -50,7 +50,7 @@ $(document).ready(() => {
       data: JSON.stringify({
         commentBody: $("#comment-" + target.getAttribute("id")).val()
       }),
-      success: function(data) {
+      success: function (data) {
         $("#comment-block-" + target.getAttribute("id")).prepend(createComment(data));
         $("#comment-" + target.getAttribute("id")).val(" ");
       }
@@ -65,28 +65,31 @@ $(document).ready(() => {
     } else {
       image = `<img src="/profile/image/${data.commentUser._id}" alt="Comment">`;
     }
-    let html = ` <div class="card grey lighten-5">
-      <div class="card-content">
-          <h5 class="flow-text">${data.commentBody}</h5>
+    let html =
+
+      ` <div class=">
+    <div grey lighten-5 single-comment">
           <div class="chip">
               ${image}
               <a href="/profile/user/${data.commentUser}">
               ${data.user.firstName} ${data.user.lastName}</a>
           </div>
-          <br>
+          <span class="flow-text">${data.commentBody}</span>
+          </div>
           <small>Posted: ${moment().format("MMMM Do YYYY")}</small>
-      </div>
-  </div>`;
+          <br><br>
+        </div>
+        </div>`;
 
     return html;
   }
 
   // Alert for deletion
-  $(".confirm-delete").on("click", function() {
+  $(".confirm-delete").on("click", function () {
     if (!confirm("Confirm Deletion?")) return false;
   });
 
-  window.onresize = function() {
+  window.onresize = function () {
     if (window.innerWidth < 1000) {
       $('div.sticky').removeAttr("sticky")
     }
