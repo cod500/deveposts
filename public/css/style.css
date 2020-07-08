@@ -95,6 +95,8 @@ div.sticky {
 
 /* End of comment styles */
 
+/* Registration and login styles */
+
 .register {
    margin-top: 10px;
 }
@@ -108,6 +110,10 @@ div.sticky {
    padding-top: 10px
 }
 
+.sign-up a {
+   font-size: 10px;
+}
+
 .sign-up-profile {
    margin-bottom: 10px;
 }
@@ -119,6 +125,8 @@ div.sticky {
 .register-btn {
    width: 100%;
 }
+
+/* End of registration and login styles */
 
 .profile-img {
    width: 200px;
