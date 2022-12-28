@@ -100,7 +100,7 @@ passport.use(
 );
 
 //Local passport setup
-module.exports = function(passport) {
+module.exports = function (passport) {
   passport.use(
     new LoacalStrategy(async (username, password, done) => {
       let user;

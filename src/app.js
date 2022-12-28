@@ -21,7 +21,7 @@ const userRouter = require("../src/routers/users");
 const app = express();
 
 //Handlebars helpers
-const {truncate,stripTags,formatDate, select, editIcon, editProfile, getStatus, myProfile} = require("../helpers/hbs");
+const { truncate, stripTags, formatDate, select, editIcon, editProfile, getStatus, myProfile } = require("../helpers/hbs");
 
 //Passport
 require("../auth/passport")(passport);
@@ -93,11 +93,11 @@ app.use(userRouter);
 app.use(postRouter);
 app.use(profileRouter);
 
-app.get('/*', (req, res) =>{
+app.get('/*', (req, res) => {
   res.redirect('/');
 })
 
-const port = process.env.PORT;
+const port = process.env.PORT || 3000;
 
 //Express server
 app.listen(port, () => {
